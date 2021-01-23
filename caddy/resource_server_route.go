@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 
 	"github.com/conradludgate/terraform-provider-caddy/caddyapi"
-	"github.com/conradludgate/terraform-provider-caddy/tfutils"
+	"github.com/conradludgate/tfutils"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )
 
@@ -12,10 +12,10 @@ type ServerRoute struct{}
 
 func (sr ServerRoute) Schema() tfutils.SchemaMap {
 	return tfutils.SchemaMap{
-		"group":    tfutils.String().Optional(),
-		"terminal": tfutils.Bool().Optional(),
-		"match":    tfutils.ListOf(ServerRouteMatcher{}).Optional(),
-		"handle":   tfutils.ListOf(ServerRouteHandler{}).Optional(),
+		"group":    tfutils.String().Optional(true),
+		"terminal": tfutils.Bool().Optional(true),
+		"match":    tfutils.ListOf(ServerRouteMatcher{}).Optional(true),
+		"handle":   tfutils.ListOf(ServerRouteHandler{}).Optional(true),
 	}
 }
 
